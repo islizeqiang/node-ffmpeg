@@ -1,0 +1,14 @@
+{
+  "name": "node-ffmpeg",
+  "interpreter": "./node_modules/.bin/ts-node",
+  "interpreter_args": "-P ./ -r tsconfig-paths/register",
+  "script": "app/index.ts",
+  "cwd": "./",
+  "kill_timeout": 10000,
+  "exec_mode": "cluster",
+  "watch": false,
+  "ignore_watch": ["tmp", "logs", "node_modules"],
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
