@@ -4,8 +4,8 @@
   "description": "Convert RSTP video stream to FLV video stream",
   "main": "app",
   "scripts": {
-    "start": "nodemon app/index.ts",
-    "prod": "pm2 start process.prod.json"
+    "start": "nodemon app",
+    "prod": "pm2 start app -i max -n node-ffmpeg"
   },
   "author": "islizeqiang",
   "license": "ISC",

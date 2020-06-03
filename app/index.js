@@ -8,7 +8,7 @@ ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 
 const server = express();
 
-const rtspRequestHandle = (ws: any, req: any) => {
+const rtspRequestHandle = (ws, req) => {
   const { url } = req.query;
   if (!url) return;
   const stream = webSocketStream(
@@ -26,20 +26,20 @@ const rtspRequestHandle = (ws: any, req: any) => {
       '-r 24',
     ])
     .on('start', () => {
-      console.log(url, 'Stream started.');
+      // console.log(url, 'Stream started.');
     })
     .on('codecData', () => {
-      console.log(url, 'Stream codecData.');
+      // console.log(url, 'Stream codecData.');
     })
-    .on('progress', (progress: any) => {
-      console.log(progress);
+    .on('progress', () => {
+      // console.log(progress);
     })
-    .on('error', (err: Error) => {
-      console.log(url, 'An error occured: ', err.message);
+    .on('error', () => {
+      // console.log(url, 'An error occured: ', err.message);
       stream.end();
     })
     .on('end', () => {
-      console.log(url, 'Stream end!');
+      // console.log(url, 'Stream end!');
       stream.end();
     })
     .outputFormat('flv')
@@ -53,7 +53,7 @@ const rtspRequestHandle = (ws: any, req: any) => {
   try {
     ffmpegCommand.pipe(stream);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 
