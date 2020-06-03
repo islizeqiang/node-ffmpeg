@@ -20,7 +20,7 @@ const rtspRequestHandle = (ws, req) => {
   const ffmpegCommand = ffmpeg(url)
     .inputOptions([
       '-rtsp_transport tcp',
-      '-buffer_size 102400',
+      '-buffer_size 1024000',
       '-analyzeduration 100000',
       '-max_delay 1000000',
       '-r 24',
